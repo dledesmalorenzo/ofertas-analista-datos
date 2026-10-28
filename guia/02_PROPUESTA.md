@@ -2,11 +2,9 @@
 
 Rellenadla y enseñádmela antes de empezar el EDA. Son diez minutos que os pueden ahorrar días.
 
-Nombre: 
+Título del proyecto: ¿Qué buscan las empresas en un analista de datos en España?
 
 ## 1. La idea
-
-Título del proyecto: ¿Qué buscan las empresas en un analista de datos en España?
 
 ¿Qué preguntas responde y a quién le interesa?
 ¿Qué herramientas y condiciones piden las empresas en España a los perfiles de datos, y qué cambia cuando el puesto es de marketing? Le interesa a quien quiere entrar en el sector (estudiantes de bootcamps, gente que cambia de profesión...) para saber qué aprender primero, y a los centros de formación para ajustar su temario a lo que pide el mercado.
