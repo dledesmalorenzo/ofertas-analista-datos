@@ -21,7 +21,7 @@ De dónde salen:
 Enlace a los datos: https://huggingface.co/datasets/lukebarousse/data_jobs
 
 Cuántas filas y columnas tienen:
-785.741 filas y 17 columnas en total. Me quedo con las ofertas de España: 25.100 filas y 17 columnas.
+785.741 filas y 17 columnas en total. Me quedaré con las ofertas de España.
 
 Qué es cada fila (un vino, un partido, una venta...):
 Una oferta de trabajo de datos publicada en 2023 (analista, científico, ingeniero de datos...), con el puesto, la ciudad, la empresa, si es en remoto, el tipo de jornada, el salario (cuando lo indica) y las herramientas que pide.
