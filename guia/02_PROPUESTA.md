@@ -34,7 +34,7 @@ Comprobado (los requisitos están en 03_DATOS.md):
 - [x] Entiendo qué es cada columna
 - [x] Hay algo que limpiar: al 12 % de las ofertas de España le faltan las herramientas, el 99 % no indica salario, las ciudades vienen con formatos distintos ("Madrid, Spain", "Spain", "Anywhere") y las herramientas vienen como una lista dentro de una celda
 - [x] Sé de dónde salen y se pueden usar: ofertas recogidas de Google por Luke Barousse, con licencia Apache 2.0
-- [x] El CSV limpio pesará menos de 100 MB (el original pesa 231 MB, pero solo con España se quedará muy por debajo)
+- [x] El CSV limpio pesará menos de 100 MB (el original pesa 231 MB, pero solo con España supongo que se hará más pequeño)
 
 ## 3. Tres preguntas que quiero responder
 
