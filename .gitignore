@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# Datos originales (231 MB, superan el límite de GitHub)
+datos/data_jobs.csv
