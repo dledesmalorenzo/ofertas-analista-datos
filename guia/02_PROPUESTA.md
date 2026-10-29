@@ -2,8 +2,6 @@
 
 Rellenadla y enseñádmela antes de empezar el EDA. Son diez minutos que os pueden ahorrar días.
 
-Nombre: 
-
 ## 1. La idea
 
 Título del proyecto: ¿Qué buscan las empresas en un analista de datos en España?
@@ -21,7 +19,7 @@ De dónde salen:
 Enlace a los datos: https://huggingface.co/datasets/lukebarousse/data_jobs
 
 Cuántas filas y columnas tienen:
-785.741 filas y 17 columnas en total. Me quedo con las ofertas de España: 25.100 filas y 17 columnas.
+785.741 filas y 17 columnas en total. Me quedaré con las ofertas de España.
 
 Qué es cada fila (un vino, un partido, una venta...):
 Una oferta de trabajo de datos publicada en 2023 (analista, científico, ingeniero de datos...), con el puesto, la ciudad, la empresa, si es en remoto, el tipo de jornada, el salario (cuando lo indica) y las herramientas que pide.
@@ -34,7 +32,7 @@ Comprobado (los requisitos están en 03_DATOS.md):
 - [x] Entiendo qué es cada columna
 - [x] Hay algo que limpiar: al 12 % de las ofertas de España le faltan las herramientas, el 99 % no indica salario, las ciudades vienen con formatos distintos ("Madrid, Spain", "Spain", "Anywhere") y las herramientas vienen como una lista dentro de una celda
 - [x] Sé de dónde salen y se pueden usar: ofertas recogidas de Google por Luke Barousse, con licencia Apache 2.0
-- [x] El CSV limpio pesará menos de 100 MB (el original pesa 231 MB, pero solo con España se quedará muy por debajo)
+- [x] El CSV limpio pesará menos de 100 MB (el original pesa 231 MB, pero solo con España supongo que se hará más pequeño)
 
 ## 3. Tres preguntas que quiero responder
 
