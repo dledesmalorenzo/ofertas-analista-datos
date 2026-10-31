@@ -100,8 +100,41 @@ with col3:
 # 7.1 Al menos dos pestañas: una con la tabla filtrada y otra con dos gráficos.
 # 7.2 Si tus datos tienen latitud y longitud, otra pestaña con el mapa.
 
+tab1, tab2, tab3 = st.tabs(["Ofertas", "¿Qué se pide?", "¿Qué te falta?"])
 
+with tab1:
+    st.header("Las ofertas filtradas")
+    st.dataframe(filtrados)
+
+with tab2:
+    col_a, col_b = st.columns(2)
+
+    with col_a:
+        st.subheader("Las 15 habilidades más pedidas")
+        por_habilidad = filtrados.explode("habilidades")
+        por_habilidad = por_habilidad.drop_duplicates()
+        st.bar_chart(por_habilidad["habilidades"].value_counts().head(15), horizontal=True)
+
+    with col_b:
+        st.subheader("Media de habilidades por puesto")
+        habilidades_puesto = filtrados.groupby("puesto")["num_habilidades"].mean().sort_values(ascending=False)
+        st.bar_chart(habilidades_puesto, horizontal=True)
 
 # Paso 8. Una pregunta para el usuario
 # 8.1 Una última pestaña con una pregunta, como "¿Cuánto cobrarías por tu piso?" o "¿Te habrías salvado?":
 #     el usuario elige algo y la app le contesta con lo que dicen los datos.
+
+with tab3:
+    st.subheader("¿Qué te falta para el puesto que quieres?")
+    mi_puesto = st.selectbox("¿Qué puesto quieres?", sorted(ofertas["puesto"].unique()))
+    todas = ofertas.explode("habilidades")
+    lista_habilidades = sorted(todas["habilidades"].dropna().unique())
+    mi_habilidad = st.selectbox("¿Qué habilidad dominas mejor?", lista_habilidades)
+    del_puesto = ofertas[ofertas["puesto"] == mi_puesto]
+    del_puesto = del_puesto[del_puesto["num_habilidades"] > 0]
+    separadas = del_puesto.explode("habilidades").drop_duplicates()
+    piden_la_mia = separadas[separadas["habilidades"] == mi_habilidad]
+    porcentaje = round(len(piden_la_mia) / len(del_puesto) * 100, 1)
+    st.metric("Ofertas de este puesto", len(del_puesto))
+    st.metric("Oferas que piden tu habilidad", len(piden_la_mia))
+    st.metric("Porcentaje que piden tu habilidad", porcentaje)
