@@ -143,3 +143,10 @@ if porcentaje >= 50:                                                            
     st.success("¡Tu habilidad es clave para este puesto!")                                # mensaje positivo, en verde
 else:                                                                                     # si no
     st.error("Tu habilidad se pide poco para este puesto. Mira abajo cuáles se piden más")  # mensaje negativo, en rojo
+
+
+# PENDIENTE (31/10): la app todavía no está terminada
+# - Meter el if/else del mensaje (verde o rojo) dentro de la pestaña 3, con sangría
+# - Añadir en la pestaña 3 la tabla con las 5 habilidades más pedidas para el puesto elegido
+# - Probar todos los filtros y pestañas
+# - Publicarla en Streamlit Community Cloud y hacer la captura para el README
