@@ -94,7 +94,7 @@ with col1:
 with col2:
     st.metric("Media de habilidades requeridas", filtrados["num_habilidades"].mean().round(1))  # cuántas habilidades piden de media, con un decimal
 with col3:
-    st.metric("Porcentaje sin mención de título", (filtrados["sin_titulo"].mean()*100).round(1))  # porcentaje de ofertas que no mencionan título universitario
+    st.metric("Porcentaje sin mención de título", str((filtrados["sin_titulo"].mean()*100).round(1)) + " %")  # porcentaje de ofertas que no mencionan título universitario; str() lo pasa a texto para añadirle el %
 
 # Paso 7. Las pestañas
 # 7.1 Al menos dos pestañas: una con la tabla filtrada y otra con dos gráficos.
@@ -113,12 +113,12 @@ with tab2:                                                                      
         st.subheader("Las 15 habilidades más pedidas")                                    # título del primer gráfico
         por_habilidad = filtrados.explode("habilidades")                                  # una fila por cada habilidad de cada oferta (explode, recomendado por el profesor)
         por_habilidad = por_habilidad.drop_duplicates()                                   # quitamos las habilidades repetidas dentro de una misma oferta
-        st.bar_chart(por_habilidad["habilidades"].value_counts().head(15), horizontal=True)  # las 15 habilidades más pedidas, en barras horizontales
+        st.bar_chart(por_habilidad["habilidades"].value_counts().head(15), horizontal=True, sort=False)  # las 15 habilidades más pedidas, en barras horizontales; sort=False respeta el orden de más a menos (sin él, ordena alfabéticamente)
 
     with col_b:
         st.subheader("Media de habilidades por puesto")                                   # título del segundo gráfico
         habilidades_puesto = filtrados.groupby("puesto")["num_habilidades"].mean().sort_values(ascending=False)  # media de habilidades de cada puesto, de más a menos
-        st.bar_chart(habilidades_puesto, horizontal=True)                                 # en barras horizontales
+        st.bar_chart(habilidades_puesto, horizontal=True, sort=False)                     # en barras horizontales; sort=False mantiene el orden de más a menos
 
 # Paso 8. Una pregunta para el usuario
 # 8.1 Una última pestaña con una pregunta, como "¿Cuánto cobrarías por tu piso?" o "¿Te habrías salvado?":
@@ -137,7 +137,7 @@ with tab3:                                                                      
     porcentaje = round(len(piden_la_mia) / len(del_puesto) * 100, 1)                      # qué porcentaje de las ofertas del puesto piden su habilidad (round() redondea números normales)
     st.metric("Ofertas de este puesto", len(del_puesto))                                  # cuántas ofertas hay de ese puesto
     st.metric("Ofertas que piden tu habilidad", len(piden_la_mia))                        # cuántas piden su habilidad
-    st.metric("Porcentaje que piden tu habilidad", porcentaje)                            # el porcentaje
+    st.metric("Porcentaje que piden tu habilidad", str(porcentaje) + " %")               # el porcentaje, con el símbolo %
     if porcentaje >= 50:                                                                      # si la pide la mitad o más de las ofertas
         st.success("¡Tu habilidad es clave para este puesto!")                                # mensaje positivo, en verde
     else:                                                                                     # si no
